@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>tiny-player</title>
+    <link
+      rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="css/vendor/prism.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tinyPlayer.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <header>
+            <h1>tiny-player HTML audio player</h1>
+            <p>A tiny and clean audio player for the web.</p>
+          </header>
+
+          <audio controls class="iru-tiny-player" data-title="Stephan Siebert - when">
+            <source src="audio/when.mp3" type="audio/mpeg">
+          </audio>
+          <br/>
+        </div>
+
+        <div class="col-md-12">
+          <a href="https://github.com/Irubataru/tiny-html-audio-player">
+          <button>
+            <span class="icon fa-github"></span>
+            Download on GitHub
+          </button></a>
+        </div>
+
+        <div class="col-md-12">
+          <h2>Multiple players</h2>
+          <p>
+            The plugin parses your HTML looking for audio tags and replaces them
+            with tiny audio players. Although there are multiple audio-players,
+            they are managed by a global object so that only one will be playing
+            at a time, and the volume sliders are linked.
+          </p>
+
+          <h2>Specifying titles</h2>
+          <p>
+            The plugin has two ways of specifying song titles:
+          </p>
+
+          <h3>HTML attribute</h3>
+
+          <p class="language-html">
+            Giving the <code>&ltaudio&gt</code> a <code>data-title=""</code> has
+            the highest precedence title for your track:
+          </p>
+
+          <pre><code class="language-html">&ltaudio controls class="iru-tiny-player" data-title="80s Vibe"&gt
+  &ltsource src="audio/80s_vibe.mp3" type="audio/mpeg"&gt
+&lt/audio&gt</code></pre>
+
+          Results in:
+
+          <div class="box">
+            <audio controls class="iru-tiny-player" data-title="Stephan Siebert - Ms. mood">
+              <source src="audio/mood.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <h3>Closets header</h3>
+          <p class="language-html">
+            If no <code>data-title</code> is specified, the plugin will search
+            for the nearest header in the same block before the previous
+            <code>&ltaudio&gt</code> tag:
+          </p>
+
+          <pre><code class="language-html">&lth2&gtStephan Siebert - first bird&lt/h2&gt
+&ltp&gtThis song is dedicated to my very special friend...&lt/p&gt
+&ltaudio controls class="iru-tiny-player"&gt
+  &ltsource src="audio/first_bird.mp3" type="audio/mpeg"&gt
+&lt/audio&gt</code></pre>
+
+          Results in:
+          <div class="box">
+            <h2>Stephan Siebert - first bird</h2>
+            <p>This song is dedicated to my very special friend...</p>
+            <audio controls class="iru-tiny-player">
+              <source src="audio/first_bird.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+
+          <h2>Dependencies</h2>
+
+          <ul>
+            <li><a href="https://howlerjs.com/">howler.js</a>: audio backend</li>
+            <li><a href="https://fontawesome.com/">Font Awesome</a>: player navigation symbols</li>
+          </ul>
+
+          <h2>Credits</h2>
+
+          <p>
+          Sample music tracks by <a href="http://freemusicarchive.org/music/Stephan_Siebert/">Stephan Siebert</a>, licensed under
+          <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons</a>.
+          </p>
+
+          <h2>License</h2>
+
+          <code><pre>    MIT License
+    Copyright (c) 2018 Jonas Rylund Glesaaen
+
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.</code></pre>
+
+            <br/>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script 
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+    <script src="js/vendor/prism.js"></script>
+    <script src="js/vendor/howler.min.js"></script>
+    <script src="js/tinyPlayer.js"></script>
+  </body>
+</html>
