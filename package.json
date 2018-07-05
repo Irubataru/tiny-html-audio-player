@@ -1,0 +1,24 @@
+{
+  "name": "tiny-player",
+  "version": "0.1.0",
+  "description": "A tiny and clean audio player for the web",
+  "main": "src/js/tinyPlayer.js",
+  "directories": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irubataru/tiny-html-audio-player.git"
+  },
+  "author": "Jonas Rylund Glesaaen <jonas@glesaaen.com> (https://irubataru.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Irubataru/tiny-html-audio-player/issues"
+  },
+  "bundleDependencies": [
+    "howler"
+  ],
+  "homepage": "https:irubataru.com/tiny-player"
+}
