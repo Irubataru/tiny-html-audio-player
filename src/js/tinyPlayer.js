@@ -1,5 +1,5 @@
 /**
- * tiny-player v.0.1.0
+ * tiny-player v.0.1.1
  * irubataru.com
  *
  * Copyright (c) 2018 Jonas Rylund Glesaaen
@@ -38,6 +38,7 @@
           this._playlist = playlist;
           this._index = 0;
           this._mouse_down = false;
+          this._animation_timestamp = 0;
           this.ns = irubataru.tinyPlayer;
         }
 
@@ -148,7 +149,7 @@
          * Update the player visuals to reflect the current position in the
          * current song.
          */
-        step() {
+        step(timestamp) {
           var self = this;
           var ns = this.ns;
 
@@ -163,6 +164,14 @@
 
           html_elem.find(".song-progress").css("width", (((seek / sound.duration())) *
             100 || 0) + "%");
+
+          var title = html_elem.find(".song-title");
+
+          if ((title.prop("scrollWidth") > (title.width() + 1)) && (timestamp > (self._animation_timestamp + 500))) {
+            var title_string = title.html();
+            title.html(title_string[1] + title_string.substr(2, title_string.length - 1) + title_string[0]);
+            self._animation_timestamp = timestamp;
+          }
 
           // If the sound is still playing, continue stepping.
           if (sound.playing()) {
@@ -227,12 +236,11 @@
         return $("<div>")
           .addClass("iru-tiny-player")
           .append($("<div>").addClass("song-progress"))
-          .append(
-            $("<div>").html(title).addClass("song")
-            .prepend($('<div class="icon fa-stop">'))
-            .prepend($('<div class="icon fa-play">'))
-            .prepend($('<div class="icon fa-pause">').hide()))
-          .append($("<div>").addClass("song-info")
+          .append($("<div>").addClass("song-main-info")
+            .append($('<div class="icon fa-play">'))
+            .append($('<div class="icon fa-pause">').hide())
+            .append($('<div class="icon fa-stop">'))
+            .append($('<div class="song-title">').html(title + "  "))
             .append($('<div>').addClass("song-timer"))
             .append($('<div class="icon fa-volume-up">')))
           .append($("<div>").addClass("song-volume-control").hide()
@@ -298,6 +306,8 @@
                 self.duration()));
               song_elem.find(".song-progress").css("width", "0%");
 
+              song_elem.find(".song-title").html(song.title + "  ");
+
               song_elem.find(".fa-pause").hide();
               song_elem.find(".fa-play").show();
             },
@@ -311,6 +321,8 @@
               song_elem.find(".song-timer").html(ns._formatTime(
                 self.duration()));
               song_elem.find(".song-progress").css("width", "0%");
+
+              song_elem.find(".song-title").html(song.title + "  ");
 
               song_elem.find(".fa-pause").hide();
               song_elem.find(".fa-play").show();
