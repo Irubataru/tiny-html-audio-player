@@ -1,5 +1,5 @@
 /**
- * tiny-player v.0.1.0
+ * tiny-player v.0.1.1
  * irubataru.com
  *
  * Copyright (c) 2018 Jonas Rylund Glesaaen
@@ -12,31 +12,39 @@
   border: 0.2ex solid;
 }
 
-.iru-tiny-player .song {
-  margin: 1ex 2ex;
+.iru-tiny-player .song-main-info {
+  margin: 2ex 2ex;
   font-size: 1.25rem;
+  display: flex;
+  align-items: center;
 }
 
-.iru-tiny-player .song-info {
-  margin: 1ex 1ex;
-  position: absolute;
-  font-size: 1.25rem;
-  right: 0;
-  top: 0;
-}
-
-.iru-tiny-player .song-info .song-timer{
-  margin: 0ex 1ex;
-  display: inline-block;
+@media screen and (max-width: 480px) {
+  .iru-tiny-player .song-main-info {
+    margin: 2ex 1ex;
+    font-size: 1rem;
+  }
 }
 
 .iru-tiny-player .icon {
   margin-right: 1ex;
-  display: inline-block;
   min-width: 1.5rem;
+  flex-basis: 1.5rem;
   text-decoration: none;
   border-bottom: none;
   position: relative;
+}
+
+.iru-tiny-player .icon:hover {
+  color: #18bfef;
+}
+
+@media screen and (max-width: 480px) {
+  .iru-tiny-player .icon {
+    margin-right: 0.25ex;
+    min-width: 1rem;
+    flex-basis: 1rem;
+  }
 }
 
 .iru-tiny-player .icon:before {
@@ -48,13 +56,25 @@
     text-transform: none !important;
 }
 
-.iru-tiny-player .icon.fa-stop {
+.iru-tiny-player .song-main-info .icon.fa-stop {
   margin-right: 2ex;
 }
 
-.iru-tiny-player .song .song-timer {
-  font-size: 1.25rem;
-  float: right;
+@media screen and (max-width: 480px) {
+  .iru-tiny-player .song-main-info .icon.fa-stop {
+    margin-right: 0.5ex;
+  }
+}
+
+.iru-tiny-player .song-main-info .song-timer {
+  margin: 0ex 1ex;
+  white-space: nowrap;
+}
+
+.iru-tiny-player .song-main-info .song-title {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .iru-tiny-player .song-progress {
@@ -119,9 +139,16 @@
 }
 
 .iru-tiny-player .icon.fa-times {
-  margin: 1ex 2ex;
+  margin: 2ex 2.5ex;
   position: absolute;
   font-size: 1.25rem;
   right: 0;
   top: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .iru-tiny-player .icon.fa-times {
+    margin: 2ex 1.5ex;
+    font-size: 1rem;
+  }
 }

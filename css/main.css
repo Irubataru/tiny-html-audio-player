@@ -5,7 +5,7 @@ iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
 code, del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
+u, i, center, dl, dt, dd, ol, fieldset,
 form, label, legend, table, caption, tbody,
 tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
@@ -27,7 +27,7 @@ body, input, select, textarea {
   font-family: "Merriweather", Georgia, serif;
   font-weight: 300;
   font-size: 1rem;
-  line-height: 2.375;
+  line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,6 +36,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.5;
   letter-spacing: 0.075em;
   text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+p {
   margin: 0 0 1rem 0;
 }
 
@@ -108,10 +112,6 @@ header > p {
   text-decoration: none;
   border-bottom: none;
   position: relative;
-}
-
-.icon:hover {
-  color: #18bfef;
 }
 
 .icon:before {
