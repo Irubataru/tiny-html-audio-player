@@ -1,8 +1,8 @@
 /**
- * tiny-player v.0.1.1
+ * tiny-player v.0.2.0
  * irubataru.com
  *
- * Copyright (c) 2018 Jonas Rylund Glesaaen
+ * Copyright (c) 2018-2020 Jonas Rylund Glesaaen
  *
  * MIT License
  */
@@ -75,6 +75,12 @@
   flex-grow: 1;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.iru-tiny-player .song-seek {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .iru-tiny-player .song-progress {
