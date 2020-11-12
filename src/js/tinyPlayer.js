@@ -250,6 +250,10 @@
             title = $(this).prevUntil("audio", ":header").first().html();
           }
 
+          var preload = !(
+            ($(this).attr("preload") === "none") ||
+            ($(this).attr("preload") === "metadata"));
+
           let files = [];
 
           $(this).children("source").each(function() {
@@ -262,6 +266,7 @@
             title: title,
             files: files,
             html_elem: song_elem,
+            preload: preload,
             howl: null
           });
 
@@ -340,6 +345,7 @@
         return new Howl({
           src: song.files,
           html5: true, // Force to HTML5 so that the audio can stream in (best for large files).
+          preload: song.preload,
           onplay: function() {
             song_elem.find(".fa-play").hide();
             song_elem.find(".fa-pause").show();
