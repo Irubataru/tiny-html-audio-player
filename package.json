@@ -2,9 +2,8 @@
   "name": "tiny-player",
   "version": "0.2.1",
   "description": "A tiny and clean audio player for the web",
-  "main": "src/js/tinyPlayer.js",
-  "directories": {
-  },
+  "main": "src/js/tinyPlatyer.js",
+  "directories": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +19,11 @@
   "bundleDependencies": [
     "howler"
   ],
-  "homepage": "https:irubataru.com/tiny-player"
+  "homepage": "https:irubataru.com/tiny-player",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.63.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
