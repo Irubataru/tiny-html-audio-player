@@ -5,6 +5,7 @@
   "main": "src/js/tinyPlatyer.js",
   "directories": {},
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,13 +17,17 @@
   "bugs": {
     "url": "https://github.com/Irubataru/tiny-html-audio-player/issues"
   },
-  "bundleDependencies": [
-    "howler"
-  ],
+  "dependencies": {
+    "howler": "^2.2.3"
+  },
   "homepage": "https:irubataru.com/tiny-player",
   "devDependencies": {
+    "@types/howler": "^2.2.4",
+    "@types/jquery": "^3.5.8",
     "css-loader": "^6.5.1",
     "style-loader": "^3.3.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.6.0-dev.20211110",
     "webpack": "^5.63.0",
     "webpack-cli": "^4.9.1"
   }
