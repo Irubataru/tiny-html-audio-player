@@ -2,7 +2,7 @@
  * tiny-player v.0.2.1
  * irubataru.com
  *
- * Copyright (c) 2018-2021 Jonas Rylund Glesaaen
+ * Copyright (c) 2018 Aleksandra Glesaaen Ødegård
  *
  * MIT License
  */
